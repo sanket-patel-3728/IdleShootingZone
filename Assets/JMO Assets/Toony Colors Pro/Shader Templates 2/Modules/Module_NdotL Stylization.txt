@@ -1,0 +1,115 @@
+// Toony Colors Pro+Mobile 2
+// (c) 2014-2020 Jean Moreno
+
+// Shader Generator Module: Textured Threshold
+
+#FEATURES
+sngl	lbl="Stylized Threshold"		kw=TEXTURED_THRESHOLD											tt="Applies a textured offset to the lighting terminator, to give a stylistic look to the shading"
+sngl	lbl="Make Optional"			kw=TT_SHADER_FEATURE	needs=TEXTURED_THRESHOLD	indent		tt="Will make textured threshold optional in the material inspector, using a shader keyword"
+sngl	lbl="Diffuse Tint"			kw=DIFFUSE_TINT													tt="Adds a diffuse tint color, to add some subtle coloring to the diffuse lighting"
+sngl	lbl="Mask"					kw=DIFFUSE_TINT_MASK	indent	needs=DIFFUSE_TINT				tt="Use a mask to selectively apply the diffuse tinting"
+#END
+
+//================================================================
+
+#PROPERTIES_NEW
+/// IF TEXTURED_THRESHOLD || DIFFUSE_TINT
+		header		Ramp Stylization
+///
+/// IF TEXTURED_THRESHOLD
+		float		Stylized Threshold				lighting, imp(texture, label = "Stylized Threshold", default = gray, channels = a, tiling_offset = true)
+		float		Stylized Threshold Scale		lighting, imp(constant, label = "Stylized Threshold Scale", default = 1)
+///
+/// IF DIFFUSE_TINT
+		color		Diffuse Tint					lighting, imp(color, label = "Diffuse Tint", default = (1,0.5,0,1))
+	/// IF DIFFUSE_TINT_MASK
+		color		Diffuse Tint Mask				lighting, imp(texture, label = "Diffuse Tint Mask", default = white)
+	///
+///
+#END
+
+//================================================================
+
+#KEYWORDS
+#END
+
+//================================================================
+
+#SHADER_FEATURES_BLOCK
+/// IF TEXTURED_THRESHOLD && TT_SHADER_FEATURE
+	#pragma shader_feature TCP2_TEXTURED_THRESHOLD
+///
+#END
+
+//================================================================
+
+#PROPERTIES_BLOCK
+/// IF TEXTURED_THRESHOLD
+	#if_not_empty
+
+	#start_not_empty_block
+	/// IF TT_SHADER_FEATURE
+		[Toggle(TCP2_TEXTURED_THRESHOLD)] _UseTexturedThreshold ("Enable Textured Threshold", Float) = 0
+	///
+		[[PROP:Stylized Threshold]]
+		[[PROP:Stylized Threshold Scale]]
+	#end_not_empty_block
+		[TCP2Separator]
+	#end_not_empty
+///
+/// IF DIFFUSE_TINT
+	#if_not_empty
+
+	#start_not_empty_block
+		[[PROP:Diffuse Tint]]
+	/// IF DIFFUSE_TINT_MASK
+		[[PROP:Diffuse Tint Mask]]
+	///
+	#end_not_empty_block
+		[TCP2Separator]
+	#end_not_empty
+///
+#END
+
+//================================================================
+
+#VARIABLES
+#END
+
+//================================================================
+
+#INPUT
+#END
+
+//================================================================
+
+#VERTEX
+#END
+
+//================================================================
+
+#LIGHTING:AFTER_NDL(float ndl)
+/// IF TEXTURED_THRESHOLD
+	/// IF TT_SHADER_FEATURE
+	#if defined(TCP2_TEXTURED_THRESHOLD)
+	///
+	float stylizedThreshold = [[VALUE:Stylized Threshold]];
+	stylizedThreshold -= 0.5;
+	stylizedThreshold *= [[VALUE:Stylized Threshold Scale]];
+	ndl += stylizedThreshold;
+	/// IF TT_SHADER_FEATURE
+	#endif
+	///
+///
+#END
+
+#LIGHTING:AFTER_RAMP(float ndl, float3 ramp)
+/// IF DIFFUSE_TINT
+	half3 diffuseTint = saturate([[VALUE:Diffuse Tint]] + ndl);
+	/// IF DIFFUSE_TINT_MASK
+		ramp = lerp(ramp, ramp * diffuseTint, [[VALUE:Diffuse Tint Mask]]);
+	/// ELSE
+		ramp *= diffuseTint;
+	///
+///
+#END
