@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+
 //using DG.Tweening;
 
 
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
+        //headphone shop , entry table , Archery Arrow bag
         //_anim = GetComponentInChildren<Animator>();
         //_rb = GetComponent<Rigidbody>();
         enabled = false;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
             _rotation = HandleRotation;
             _movement = HandleMovement;
         }
+
         GameController.OnGameStart += PlayerControllerOnGameStart;
     }
 
@@ -73,7 +75,9 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector3.zero;
         }
     }
+
     #region Movement
+
     void HandleMovement()
     {
         _rb.MovePosition(Move(m_MoveSpeed * Time.deltaTime));
@@ -160,9 +164,11 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, factor);
         }
     }
+
     #endregion
 
     #region Stack
+
     /*public int maxStackCount = 5;
     public Transform stackPoint;
     //public List<Collectables> allStackItems;
@@ -203,5 +209,6 @@ public class PlayerController : MonoBehaviour
         }
         return temp;
     }*/
+
     #endregion
 }
