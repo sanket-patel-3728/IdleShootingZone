@@ -88,7 +88,7 @@ public class TicketController : MonoBehaviour
             {
                 task.storedCustomer = customer;
                 task.storedCustomer.taskController = task;
-                customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles);
+                customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles,()=> task.StartTask());
                 NextCustomer(customer);
             }
         }

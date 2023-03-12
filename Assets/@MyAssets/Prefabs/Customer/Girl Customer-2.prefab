@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a422d623f280b4da573fe110a2e481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 2557633565019527569}
   helmet: {fileID: 0}
   baseball: {fileID: 0}
   hair: {fileID: 0}

@@ -12,4 +12,6 @@ public abstract class TaskController : MonoBehaviour
     {
         TicketController.instance.allTaskControllers.Add(this);
     }
+
+
 }

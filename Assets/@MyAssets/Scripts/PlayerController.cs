@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
-        //headphone shop , entry table , Archery Arrow bag
         //_anim = GetComponentInChildren<Animator>();
         //_rb = GetComponent<Rigidbody>();
         enabled = false;
