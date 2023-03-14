@@ -1,16 +1,18 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TicketController : MonoBehaviour
 {
+    public static TicketController instance;
     public Image triggerIn;
     public Image triggerOut;
-    public static TicketController instance;
     public Collider playerCollider;
     public MoneyStacker moneyStacker;
     public Transform stadingPoint;
     public List<TaskController> allTaskControllers;
+    public HeadPhoneShop headPhoneShop;
 
     bool _verify;
     bool _isCustomer;
@@ -43,7 +45,7 @@ public class TicketController : MonoBehaviour
                 _verify = true;
                 if (_isPlayer)
                 {
-                    AggryPermission();
+                    //AggryPermission();
                 }
             }
         }
@@ -58,7 +60,7 @@ public class TicketController : MonoBehaviour
                 triggerIn.Show();
                 if (_verify && _isCustomer)
                 {
-                    AggryPermission();
+                    StartCoroutine(AggryPermission());
                 }
             }
         }
@@ -72,6 +74,7 @@ public class TicketController : MonoBehaviour
             _isPlayer = false;
             triggerIn.Hide();
             triggerOut.Show();
+            StopCoroutine(AggryPermission());
         }
 
         if (other.TryGetComponent(out Customer tcustomer))
@@ -84,21 +87,26 @@ public class TicketController : MonoBehaviour
         }
     }
 
-    public void AggryPermission()
+    IEnumerator AggryPermission()
     {
+        yield return new WaitForSeconds(1);
         if ((_isCustomer && _isPlayer && _verify))
         {
             var customer = CustomerManager.instance.allWaitingCustomers[0];
             var task = allTaskControllers.Find(x => x.storedCustomer == null);
 
-            if (task != null)
+            if (task != null && headPhoneShop.allWaitingCustomer.Count < 3)
             {
                 task.storedCustomer = customer;
                 task.storedCustomer.taskController = task;
-                customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles, () => task.StartTask());
+
+                headPhoneShop.allWaitingCustomer.Add(customer);
+                headPhoneShop.ArrangePosition();
+                //customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles, () => task.StartTask());
                 NextCustomer(customer);
             }
         }
+        StartCoroutine(AggryPermission());
     }
 
     private void NextCustomer(Customer customer)

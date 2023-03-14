@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
-        //Shootingzone- make unlock system
+        //Shootingzone- set headphone shop, first customer pic up headphone after play task , make idlebaseball fully video 
         //GymTrainer- change player charactor and animation , set entry table
         //_anim = GetComponentInChildren<Animator>();
         //_rb = GetComponent<Rigidbody>();

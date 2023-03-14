@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 #if UNITY_EDITOR && DEVELOPER_MODE
 using TMPro;
 using UnityEngine.UI;
@@ -118,21 +119,25 @@ public sealed class CameraFollow : MonoBehaviour
     internal void MoveTo(Vector3 position, float delay = 0, float duration = .5f, Action action = null)
     {
         enabled = false;
-        iTween.MoveTo(gameObject, iTween.Hash(
+        /*iTween.MoveTo(gameObject, iTween.Hash(
             IArg.POSITION, position,
             IArg.DELAY, delay,
             IArg.TIME, duration,
             IArg.ON_COMPLETE, action
-            ));
+            ));*/
+        transform.DOMove(position, duration).SetDelay(delay).OnComplete(() => action?.Invoke());
     }
 
     internal void MoveTo(Vector3 position, Vector3 rotation, float delay = 0, float duration = .5f, Action action = null)
     {
-        MoveTo(position, delay, duration, action);
+        /*MoveTo(position, delay, duration, action);
         iTween.RotateTo(gameObject, iTween.Hash(
             IArg.ROTATION, rotation,
             IArg.TIME, duration
-            ));
+            ));*/
+
+        MoveTo(position, delay, duration, action);
+        transform.DORotate(rotation, duration);
     }
 
     internal void MoveTo(Transform target, float delay = 0, float duration = .5f, Action action = null)
@@ -142,6 +147,6 @@ public sealed class CameraFollow : MonoBehaviour
 
     internal void ReturnToNormal(float delay = 0f, float duration = .5f, Action action = null)
     {
-        MoveTo(GetDesiredPosition(), _lookAtOffset, delay, duration);
+        MoveTo(GetDesiredPosition(), _lookAtOffset, delay, duration, (() => enabled = true));
     }
 }

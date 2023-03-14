@@ -8,6 +8,7 @@ public class Customer : MonoBehaviour
 {
     public Transform bubulletStartPoint;
     public GameObject bubulletTrail;
+    public GameObject headPhone;
     public bool isGirl;
     public bool isSiting;
     NavMeshAgent _navMeshAgent;

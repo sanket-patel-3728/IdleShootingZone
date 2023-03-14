@@ -95,7 +95,7 @@ public class Unlockable : MonoBehaviour
                 }
 
                 //price--;
-                //MoneyManager.instance.moneyScore.text = (PlayerPrefs.GetInt(PlayerPrefsKey.Money, 0) + "$").ToString();
+                MoneyManager.instance.moneyScore.text = (PlayerPrefs.GetInt(PlayerPrefsKey.Money, 0) + "$").ToString();
                 priceText.text = (price + "$").ToString();
                 PlayerPrefs.SetFloat(id, price);
                 DOTween.To(() => fillImage.fillAmount, x => fillImage.fillAmount = x, 1 - (price / fillPrice), 0.1f);

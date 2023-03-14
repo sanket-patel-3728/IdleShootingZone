@@ -1653,6 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubulletStartPoint: {fileID: 6369653156026997248}
   bubulletTrail: {fileID: 7168426558369874999}
+  headPhone: {fileID: 9184498326772032468}
   isGirl: 0
   isSiting: 0
   taskController: {fileID: 0}
@@ -1824,7 +1825,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0.009682602, z: 0.0043951357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1759504161107348960}
   m_Father: {fileID: 4229293671002605679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2885,6 +2887,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000849884, y: -0.005076845, z: 0.004679405}
     m_Extent: {x: 0.033169713, y: 0.035863467, z: 0.019847754}
   m_DirtyAABB: 0
+--- !u!1 &9184498326772032468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759504161107348960}
+  m_Layer: 0
+  m_Name: 'PhoneHangerRight_MSH8 (Missing Prefab with guid: 2b55e13280edadc458f12db96a9b9f5d)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759504161107348960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184498326772032468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 61260998559186294}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2055056259389943568
 PrefabInstance:
   m_ObjectHideFlags: 0
