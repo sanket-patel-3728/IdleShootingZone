@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TicketController : MonoBehaviour
 {
+    public Image triggerIn;
+    public Image triggerOut;
     public static TicketController instance;
     public Collider playerCollider;
     public MoneyStacker moneyStacker;
@@ -51,6 +54,8 @@ public class TicketController : MonoBehaviour
             if (other.bounds.Intersects(playerCollider.bounds))
             {
                 _isPlayer = true;
+                triggerOut.Hide();
+                triggerIn.Show();
                 if (_verify && _isCustomer)
                 {
                     AggryPermission();
@@ -65,6 +70,8 @@ public class TicketController : MonoBehaviour
         {
             if (!_isPlayer) return;
             _isPlayer = false;
+            triggerIn.Hide();
+            triggerOut.Show();
         }
 
         if (other.TryGetComponent(out Customer tcustomer))
@@ -88,7 +95,7 @@ public class TicketController : MonoBehaviour
             {
                 task.storedCustomer = customer;
                 task.storedCustomer.taskController = task;
-                customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles,()=> task.StartTask());
+                customer.SetTarget(task.taskPoint.position, task.taskPoint.eulerAngles, () => task.StartTask());
                 NextCustomer(customer);
             }
         }

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
+        //Shootingzone- make unlock system
+        //GymTrainer- change player charactor and animation , set entry table
         //_anim = GetComponentInChildren<Animator>();
         //_rb = GetComponent<Rigidbody>();
         enabled = false;

@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class Customer : MonoBehaviour
 {
-    public GameObject helmet, baseball;
-    public GameObject hair;
+    public Transform bubulletStartPoint;
+    public GameObject bubulletTrail;
     public bool isGirl;
     public bool isSiting;
     NavMeshAgent _navMeshAgent;
@@ -30,6 +30,7 @@ public class Customer : MonoBehaviour
 
     private void Start()
     {
+        bubulletTrail.Hide();
         StartCoroutine(EditUpdate());
         StartCoroutine(PlaySitingAnimation());
     }

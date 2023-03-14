@@ -8,7 +8,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Unlockable : MonoBehaviour
 {
-    [Header("Bordr")] public GameObject border;
     [Header("Unlockable Data")] public string id;
     public float price;
     public float fillPrice;
@@ -30,11 +29,6 @@ public class Unlockable : MonoBehaviour
     {
         fillPrice = price;
         LoadData();
-    }
-
-    private void Start()
-    {
-        border.transform.DOScale(1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void OnTriggerEnter(Collider other)
