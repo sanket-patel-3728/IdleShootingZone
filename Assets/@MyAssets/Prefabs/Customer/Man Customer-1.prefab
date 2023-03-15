@@ -1248,6 +1248,89 @@ Transform:
   m_Father: {fileID: 4777993473250744188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 36.735207, y: -1.1544255, z: 0.024506705}
+--- !u!1 &3373503030124226303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4526869850133213220}
+  - component: {fileID: 3576689380765224326}
+  - component: {fileID: 990652393234730734}
+  m_Layer: 0
+  m_Name: PhoneHangerRight_MSH6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4526869850133213220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373503030124226303}
+  m_LocalRotation: {x: -0.22612216, y: 0.69843173, z: -0.16251715, w: 0.65927994}
+  m_LocalPosition: {x: 0.00015997957, y: -0.003480013, z: -0.0018199997}
+  m_LocalScale: {x: 0.024999995, y: 0.025, z: 0.025}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2840785499862827910}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.08, y: 94.478, z: -32.107}
+--- !u!33 &3576689380765224326
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373503030124226303}
+  m_Mesh: {fileID: -9199777327051253708, guid: a3dee103e90fd0d41ae404987881de25, type: 3}
+--- !u!23 &990652393234730734
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373503030124226303}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 251ac3955688bc34aaff01573b4506cb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3451195548839196632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,37 +1682,6 @@ Transform:
   m_Father: {fileID: 6959383611818995084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 11.110589, y: -9.394294, z: 0.20623396}
---- !u!1 &4698197956615264854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5850423458245856397}
-  m_Layer: 0
-  m_Name: 'PhoneHangerRight_MSH6 (Missing Prefab with guid: ab8e6e8862168144cae8bb55d8de947d)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5850423458245856397
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4698197956615264854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2840785499862827910}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4765615088740202695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubulletStartPoint: {fileID: 6208876957419687917}
   bubulletTrail: {fileID: 4071494908175849854}
-  headPhone: {fileID: 4698197956615264854}
+  headPhone: {fileID: 3373503030124226303}
   isGirl: 0
   isSiting: 0
   taskController: {fileID: 0}
@@ -2825,7 +2877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5850423458245856397}
+  - {fileID: 4526869850133213220}
   m_Father: {fileID: 2090976439619303071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
