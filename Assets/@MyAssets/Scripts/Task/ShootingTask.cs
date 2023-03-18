@@ -14,6 +14,7 @@ public class ShootingTask : TaskController
     {
         yield return new WaitForSeconds(1);
         storedCustomer.SetAnimation("Idle", true);
+        storedCustomer.gun.Show();
         yield return new WaitForSeconds(5);
         storedCustomer.SetAnimation("Shoot");
         yield return new WaitForSeconds(0.3f);
@@ -37,6 +38,7 @@ public class ShootingTask : TaskController
             .OnComplete(() => storedCustomer.bubulletTrail.Hide());
         yield return new WaitForSeconds(5);
         storedCustomer.SetAnimation("Idle", false);
+        storedCustomer.gun.Hide();
         yield return new WaitForSeconds(1);
         storedCustomer.ExitCustomer();
         storedCustomer = null;

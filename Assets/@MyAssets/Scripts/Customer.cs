@@ -6,13 +6,14 @@ using UnityEngine.AI;
 
 public class Customer : MonoBehaviour
 {
+    [SerializeField] NavMeshAgent _navMeshAgent;
+    [SerializeField] Animator _anim;
     public Transform bubulletStartPoint;
     public GameObject bubulletTrail;
     public GameObject headPhone;
+    public GameObject gun, gun2;
     public bool isGirl;
     public bool isSiting;
-    NavMeshAgent _navMeshAgent;
-    Animator _anim;
     CustomerManager _customerManager;
     Action _action;
     Vector3 _target;
@@ -24,8 +25,6 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _anim = GetComponent<Animator>();
         _customerManager = CustomerManager.instance;
     }
 
@@ -49,7 +48,8 @@ public class Customer : MonoBehaviour
 
         if (_navMeshAgent.enabled == true)
         {
-            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+            var dist = Vector3.Distance(_target, transform.position);
+            if (dist <= 0.1)
             {
                 if (_isExit)
                 {
