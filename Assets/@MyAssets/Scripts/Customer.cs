@@ -8,10 +8,16 @@ public class Customer : MonoBehaviour
 {
     [SerializeField] NavMeshAgent _navMeshAgent;
     [SerializeField] Animator _anim;
+
     public Transform bubulletStartPoint;
     public GameObject bubulletTrail;
     public GameObject headPhone;
     public GameObject gun, gun2;
+
+    public Transform arrowStartPoint;
+    public GameObject arrow, arrow2, arrow3;
+    public GameObject archery,bow;
+
     public bool isGirl;
     public bool isSiting;
     CustomerManager _customerManager;

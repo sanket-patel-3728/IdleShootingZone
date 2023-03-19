@@ -3,8 +3,8 @@ using UnityEngine;
 
 public abstract class TaskController : MonoBehaviour
 {
-    public Transform taskPoint, shootPoint;
     public Customer storedCustomer;
+    public Transform taskPoint, shootPoint;
 
     public abstract void StartTask();
 

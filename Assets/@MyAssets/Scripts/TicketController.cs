@@ -33,6 +33,7 @@ public class TicketController : MonoBehaviour
     private void Start()
     {
         CodeMonkey.Utils.FunctionTimer.Create(() => { CustomerManager.instance.instanceSpawing(); }, 1);
+        _isPlayer = true;
     }
 
     private void OnTriggerEnter(Collider other)
